@@ -43,7 +43,10 @@ userSchema.statics.createSecure = function(username, password, callback){
       // if found user, check if password is correct
       } else if (user.checkPassword(password)) {
         callback(null, user);
-      }
+      } 
+      // else {
+      //   callback("Error: incorrect password",null);
+      // }
     });
   };
 
