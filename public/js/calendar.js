@@ -1059,8 +1059,8 @@ if(!String.prototype.formatNum) {
 				var day = (child.hasClass('cal-month-first-row') ? 1 : $('[data-cal-date]', child).text());
 				p.setDate(parseInt(day));
 				day = (day < 10 ? '0' + day : day);
-				week.html(self.locale.week.format(p.getWeek()));
-				week.attr('data-cal-week', start + day).show().appendTo(child);
+				//week.html(self.locale.week.format(p.getWeek()));
+				//week.attr('data-cal-week', start + day).show().appendTo(child);
 			})
 			.on('mouseleave', function() {
 				week.hide();
