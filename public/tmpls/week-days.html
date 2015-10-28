@@ -1,4 +1,5 @@
 <% _.each(events, function(event){ %>
+<h3 class="phil"><%= cal.locale['m' + start.getMonth()] %></h3>
 <div class="cal-row-fluid">
 	<div class="cal-cell<%= event.days%> cal-offset<%= event.start_day %> day-highlight dh-<%= event['class'] %>" data-event-class="<%= event['class'] %>">
 		<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-event-id="<%= event.id %>" class="cal-event-week event<%= event.id %>"><%= event.title %></a>
