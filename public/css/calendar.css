@@ -1,3 +1,7 @@
+* {
+  font-family: "Times New Roman";
+}
+
 [class*="cal-cell"] {
   float: left;
   margin-left: 0;

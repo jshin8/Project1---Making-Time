@@ -1,5 +1,46 @@
 <h3 class="phil"><%= cal.locale['d' + start.getDate()] %> <%= start.getDate() %> <%= cal.locale['m' + start.getMonth()] %> <%= (start.getYear() + 1900) %></h3>
-<div id="cal-day-box">
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <h2>Planz?   </h2>
+          <form class="text-center" id="new-post">
+            <div class="form-group">
+              <input class="form-control" id="post" type= 'text' maxlength='200' placeholder="Speak!" autofocus>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg" value="Post">
+            </div>
+             <input type="submit" class="btn btn-primary btn-xs" value="Radio SpaceCat">
+          </form> 
+        </div>
+      </div>
+</div>
+<div id="postlist"></div> 
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    getPost();
+});
+
+//function to grab input from form
+function getPost() {
+	$('.btn-lg').click(function() {
+    	event.preventDefault();	
+      	postPost($('#post').val());
+	});
+}
+//function to add input and timestamp to the DOM and then clear typebox
+function postPost(content) {
+	$('#postlist').prepend('<p>' + content + ' sent on ' + new Date($.now())+ '</p>');
+	$('#post').val('');
+}
+</script>
+
+
+
+<!-- <div id="cal-day-box">
 	<div class="row-fluid clearfix cal-row-head">
 		<div class="span1 col-xs-1 cal-cell"><%= cal.locale.time %></div>
 		<div class="span11 col-xs-11 cal-cell"><%= cal.locale.events %></div>
@@ -72,3 +113,4 @@
 	</div>
 	<% }; %>
 </div>
+ -->
