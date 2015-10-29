@@ -24,7 +24,15 @@ h4 {
 	text-align: center;
 }
 
-.btn-primary{
+#post-ul {
+	color: rgba(255,255,255,0.75);
+}
+
+#movebro{
 	margin-right:30px;
+}
+
+.list-group-item {
+	background-color: rgba(0,0,0,.75);
 }
 

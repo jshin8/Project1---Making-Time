@@ -6,7 +6,7 @@
       
     <!-- form to enter new post -->
       <div class="col-md-4   text-left">  
-         <form id="new-post">
+         <!-- <form id="new-post">
              <div class="form-group">
                 <input type="text" class="form-control" placeholder="User Name" id="name">
             </div>
@@ -17,36 +17,22 @@
             <div class="form-group">
               <input type="submit" value="Post" class="btn btn-primary btn-block">
             </div>
-          </form>
+          </form> -->
+           <form class="form-inline" id="new-post-form">
+      <input name="name" type="text" class="form-control" id="post-name-input" placeholder="Name">
+      <input name="message" type="text" class="form-control" id="post-message-input" placeholder="Message">
+      <button type="submit" class="btn btn-primary">fuck</button>
+    </form>
       </div>
      
       <!-- container for appended new post -->
         
+
 </div>
 
-<div id="postlist">
-        
-</div>
 
-<script>
-$(document).ready(function() {
-    getPost();
 
-});
-
-//function to grab input from form
-function getPost() {
-	$('.btn-block').click(function() {
-    	event.preventDefault();	
-      	postPost($('#name').val(), $('#message').val());
-	});
-}
-//function to add input and timestamp to the DOM and then clear typebox
-function postPost(name, message) {
-	$('#postlist').prepend('<p>' + name + ' said ' + '"' + message + '"' + ' on ' + new Date($.now())+ '</p>');
-	$('#message').val('');
-}
-</script>
+<script type="text/javascript" src="/js/app.js"></script> 
 
 
 

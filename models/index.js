@@ -14,3 +14,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 
 // After creating a new model, require and export it:
 module.exports.User = User;
+module.exports.Post = require("./post.js"); //added, dawg

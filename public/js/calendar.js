@@ -944,9 +944,10 @@ if(!String.prototype.formatNum) {
 			self.view(view);
 		});
 		$('.cal-cell').dblclick(function() {
-			var view = $('[data-cal-date]', this).data('cal-view');
-			self.options.day = $('[data-cal-date]', this).data('cal-date');
-			self.view(view);
+			window.location.href = "/dayz";
+			// var view = $('[data-cal-date]', this).data('cal-view');
+			// self.options.day = $('[data-cal-date]', this).data('cal-date');
+			// self.view(view);
 		});
 
 		this['_update_' + this.options.view]();
