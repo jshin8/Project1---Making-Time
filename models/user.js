@@ -1,12 +1,14 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var bcrypt = require("bcryptjs");
+var Post = require("./post");
 
 // create a user Schema
 var userSchema = new Schema({
 	// create a blueprint for our user object
 	username: String,
-	passwordDigest: String
+	passwordDigest: String,
+  posts: [Post.schema]
 });
 
   // create a new user with secure (hashed) password

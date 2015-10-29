@@ -1,40 +1,50 @@
 <h2 class="phil"><%= cal.locale['d' + start.getDate()] %> <%= start.getDate() %> <%= cal.locale['m' + start.getMonth()] %> <%= (start.getYear() + 1900) %></h2>
 
-<div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <h2>Planz?</h2>
-          <form class="text-center" id="new-post">
+
+<div class = "container">
+      
+      
+    <!-- form to enter new post -->
+      <div class="col-md-4   text-left">  
+         <form id="new-post">
+             <div class="form-group">
+                <input type="text" class="form-control" placeholder="User Name" id="name">
+            </div>
+
             <div class="form-group">
-              <input class="form-control" id="post" type= 'text' maxlength='200' placeholder="Speak!" autofocus>
+              <textarea class="form-control" rows="3" placeholder="Message" id="message"></textarea>
             </div>
             <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-lg" value="Post">
+              <input type="submit" value="Post" class="btn btn-primary btn-block">
             </div>
-             <input type="submit" class="btn btn-primary btn-xs" value="Radio SpaceCat">
-          </form> 
-        </div>
+          </form>
       </div>
+     
+      <!-- container for appended new post -->
+        
 </div>
-<div id="postlist"></div> 
 
+<div id="postlist">
+        
+</div>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     getPost();
+
 });
 
 //function to grab input from form
 function getPost() {
-	$('.btn-lg').click(function() {
+	$('.btn-block').click(function() {
     	event.preventDefault();	
-      	postPost($('#post').val());
+      	postPost($('#name').val(), $('#message').val());
 	});
 }
 //function to add input and timestamp to the DOM and then clear typebox
-function postPost(content) {
-	$('#postlist').prepend('<p>' + content + ' sent on ' + new Date($.now())+ '</p>');
-	$('#post').val('');
+function postPost(name, message) {
+	$('#postlist').prepend('<p>' + name + ' said ' + '"' + message + '"' + ' on ' + new Date($.now())+ '</p>');
+	$('#message').val('');
 }
 </script>
 
