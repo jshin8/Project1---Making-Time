@@ -2,6 +2,8 @@
 // On page load
 $(document).ready(function(){
   pageLoad();
+  kero();
+
 });
 
 // function definitions
@@ -13,49 +15,31 @@ function pageLoad() {
     e.preventDefault();
     // post serialized form to server
     $.post("/api/posts", $(this).serialize(), function(response){
-      // append new food to the page
+      // append new post to the page
       var newPost = response;
-    console.log('hi');
-      // clear new food form
+      console.log(newPost);
+      // clear new post form
       var postString = makeHTMLString(newPost);
       $("#post-ul").prepend(postString);
-      // reset the form 
-      $("#new-post-form")[0].reset();
-      // give focus back to the food name input
-      $("#post-name-input").focus();
+      // reset the message input, name input remains 
+      $("#post-message-input").val(function() {
+        return this.defaultValue;
+      });
+      // give focus back to the post message input
+      $("#post-message-input").focus();
     });
   });
 }
 
-
-function makeHTMLString(post){
-  return '<li class="list-group-item"><h4 class="list-group-item-heading">' + post.name +
-  '</h4><span class="list-group-item-text">' + post.message + '</span>' +
-  '<button data-id='+ post.id + ' type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-  '</li>';
+//initial rendering of post to DOM
+function makeHTMLString(post){ console.log(post._id);
+  return '<li class="list-group-item"><h4 class="list-group-item-heading"></h4><span class="list-group-item-text">' + post.name + ': ' + post.message + '</span></li>';
 }
 
-
-
-
-
-
-
-
-// $(document).ready(function() {
-//     getPost();
-
-// });
-
-// //function to grab input from form
-// function getPost() {
-// 	$('.btn-block').click(function() {
-//     	event.preventDefault();	
-//       	postPost($('#name').val(), $('#message').val());
-// 	});
-// }
-// //function to add input and timestamp to the DOM and then clear typebox
-// function postPost(name, message) {
-// 	$('#postlist').prepend('<p>' + name + ' said ' + '"' + message + '"' + ' on ' + new Date($.now())+ '</p>');
-// 	$('#message').val('');
-// }
+function kero(){
+  $('span.pull-right').on('click', function() {
+     console.log(this);
+     var title = $( this ).attr( "data-cal-date" );
+     console.log(title);
+});
+}

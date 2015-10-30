@@ -143,35 +143,6 @@ app.post('/login', function (req, res) {
 
 // API ROUTES
 
-// show current user
-// app.get('/api/users/current', function (req, res) {
-//   // check for current (logged-in) user
-//   req.currentUser(function (err, user) {
-//     res.json(user);
-//   });
-// });
-
-// // create new post for current user
-// app.post('/api/users/current/posts', function (req, res) {
-//   // create new log with form data (`req.body`)
-//   var newPost = new Post({
-//     name: req.body.name,
-//     message: req.body.message
-//   });
-
-//   // save new post
-//   newPost.save();
-
-//   // find current user
-//   req.currentUser(function (err, user) {
-//     // embed new post in user's posts
-//     user.posts.push(newPost);
-//     // save user (and new post)
-//     user.save();
-//     // respond with new post
-//     res.json(newPost);
-//   });
-// });
 
 // show all posts
 app.get('/api/posts', function (req, res) {

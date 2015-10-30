@@ -939,16 +939,19 @@ if(!String.prototype.formatNum) {
 		$('*[data-toggle="tooltip"]').tooltip({container: 'body'});
 
 		$('*[data-cal-date]').click(function() {
-			var view = $(this).data('cal-view');
-			self.options.day = $(this).data('cal-date');
-			self.view(view);
+			window.location.href = "/dayz"  ;
+			// var view = $(this).data('cal-view');
+			// self.options.day = $(this).data('cal-date');
+			// self.view(view);
 		});
-		$('.cal-cell').dblclick(function() {
-			window.location.href = "/dayz";
+		//$('.cal-cell').dblclick(function() {
+			//window.location.href = "/dayz";
+			//window.location.hash = "pokeball";
+			//window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", /dayz/poke);
 			// var view = $('[data-cal-date]', this).data('cal-view');
 			// self.options.day = $('[data-cal-date]', this).data('cal-date');
 			// self.view(view);
-		});
+		//});
 
 		this['_update_' + this.options.view]();
 

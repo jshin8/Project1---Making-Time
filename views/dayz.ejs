@@ -42,6 +42,7 @@
         <form class="form-inline" id="new-post-form">
           <input name="name" type="text" class="form-control" id="post-name-input" placeholder="Name">
           <input name="message" type="text" class="form-control" id="post-message-input" placeholder="Message">
+          <!-- <input name="dadate" type="text" class="form-control" > -->
           <button type="submit" class="btn btn-primary">Post</button>
         </form>
       </div>
@@ -55,14 +56,13 @@
     <script type="text/javascript" src="/js/calendar.js"></script> 
     <script type="text/javascript" src="/js/app.js"></script> 
    
-<ul class="list-group" id="post-ul">
-    <% for (var i=0; i<posts.length; i++) { %>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading"></h4>
-        <span class='list-group-item-text'><%= posts[i].name %>: <%= posts[i].message %></span>
-          <button data-id="<%=posts[i].id %>" type='button' class='close' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-      </li>
-    <% } %>
+    <ul class="list-group" id="post-ul">
+      <% for (var i=posts.length-1; i>0; i--) { %>
+          <li class="list-group-item">
+            <h4 class="list-group-item-heading"></h4>
+            <span class='list-group-item-text'><%= posts[i].name %>: <%= posts[i].message %></span>
+          </li>
+      <% } %>
     </ul>
   </div>
 </body>
