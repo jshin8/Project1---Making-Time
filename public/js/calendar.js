@@ -934,12 +934,20 @@ if(!String.prototype.formatNum) {
 	};
 
 	Calendar.prototype._update = function() {
+		function kero(){
+  		$('span.pull-right').on('click', function() {
+	     console.log(this);
+	     var title = $( this ).attr( "data-cal-date" );
+	     console.log(title);
+	
+	
+
 		var self = this;
 
 		$('*[data-toggle="tooltip"]').tooltip({container: 'body'});
 
 		$('*[data-cal-date]').click(function() {
-			window.location.href = "/dayz"  ;
+			window.location.href = "/dayz" + title ;
 			// var view = $(this).data('cal-view');
 			// self.options.day = $(this).data('cal-date');
 			// self.view(view);
@@ -956,8 +964,8 @@ if(!String.prototype.formatNum) {
 		this['_update_' + this.options.view]();
 
 		this._update_modal();
-
-	};
+}
+	});
 
 	Calendar.prototype._update_modal = function() {
 		var self = this;
